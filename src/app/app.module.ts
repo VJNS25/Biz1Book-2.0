@@ -23,6 +23,13 @@ import { firebaseConfig, firebaseAuthService } from './services/firebase'
 import { jwtAuthService } from './services/jwt'
 import { MockHttpCallInterceptor } from './services/fakeApi'
 
+// Electron
+import { ElectronService, NgxElectronModule } from 'ngx-electron';
+
+// Pipe
+// import { FilterPipe, CategoryPipe, MultiFilterPipe, ExcludeFilterPipe } from './shared/order.filter.pipe';
+// import { MomentPipe } from './shared/moment.pipe';
+
 // locale resistration
 import { registerLocaleData } from '@angular/common'
 import { default as localeEn } from '@angular/common/locales/en'
@@ -34,13 +41,17 @@ const LOCALE_PROVIDERS = [
 registerLocaleData(localeEn, 'en')
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent
+
+  ],
   imports: [
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     AppRoutingModule,
+    NgxElectronModule,
 
     // translate
     TranslateModule.forRoot(),
@@ -68,6 +79,7 @@ registerLocaleData(localeEn, 'en')
     // auth services
     firebaseAuthService,
     jwtAuthService,
+    ElectronService,
 
     // fake http interceptors
     {

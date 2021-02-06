@@ -20,6 +20,7 @@ export class CustomerComponent implements OnInit {
   show: any = false;
   StoreId: number;
   term;
+  masterdata = [];
   p;
   filteredcustomer = null;
   deleteId;
@@ -45,7 +46,9 @@ export class CustomerComponent implements OnInit {
       this.Customer = data;
       for (let i = 0; i < this.Customer.length; i++) {
         this.Customer[i].LastSeen = moment(this.Customer[i].LastSeen).format('LLL');
+       
       }
+      this.masterdata = this.Customer;
     });
   }
 
@@ -87,5 +90,23 @@ export class CustomerComponent implements OnInit {
   // POP Up
   openCustomClass(content) {
     this.modalService.open(content, { centered: true })
+  }
+  timeout: any = null;
+  onKeySearch() {
+    clearTimeout(this.timeout);
+    var $this = this;
+    this.timeout = setTimeout(function () {
+      $this.search();
+    }, 500);
+  }
+  search() {
+    console.log(this.term,this.masterdata)
+    if (this.term == '' || this.term == null) {
+      this.Customer = this.masterdata
+    } else {
+      this.Customer = this.masterdata.filter(x => x.Name?.toLowerCase().includes(this.term.toLowerCase()) || x.PhoneNo?.toLowerCase().includes(this.term.toLowerCase()));
+      // console.log(this.masterdata[0])
+      // console.log(this.masterdata[0].Name.toLowerCase())
+    }
   }
 }

@@ -40,37 +40,38 @@ export const getMenuData: any[] = [
   {
     title: 'Sell',
     key: 'Sell',
-    icon: 'fa fa-shopping-cart',
+    icon: 'fe fe-shopping-cart',
+    roles: ['admin'],
     url: '/apps/order',
   },
   {
     title: 'Receipts',
     key: 'Receipt',
-    icon: 'fa fa-rupee',
+    icon: 'fe fe-dollar-sign',
     url: '/apps/receipt',
   },
   {
     title: 'Customers',
     key: 'Customers',
-    icon: 'lnr lnr-users',
+    icon: 'fe fe-users',
     url: '/apps/customer',
   },
-  {
-    title: 'Expenses',
-    key: 'Expenses',
-    icon: 'lnr lnr-layers',
-    url: '/apps/expenses',
-  },
+  // {
+  //   title: 'Expenses',
+  //   key: 'Expenses',
+  //   icon: 'fe fe-package',
+  //   url: '/apps/expenses',
+  // },
   {
     title: 'Price Book',
     key: 'book',
-    icon: 'fa fa-leanpub',
+    icon: 'fe fe-book-open',
     url: '/apps/pricebook',
   },
   {
     title: 'UrbanPiper Hub',
     key: 'book',
-    icon: 'lnr lnr-underline',
+    icon: 'fe fe-underline',
     url: '/apps/urbanpiper',
   },
   // {
@@ -98,11 +99,11 @@ export const getMenuData: any[] = [
   //       key: 'appsCart',
   //       url: '/apps/messaging',
   //     },
-  //     {
-  //       title: 'Mail',
-  //       key: 'appsMail',
-  //       url: '/apps/mail',
-  //     },
+  // {
+  //   title: 'Mail',
+  //   key: 'appsMail',
+  //   url: '/apps/mail',
+  // },
   //     // {
   //     //   title: 'Sell',
   //     //   key: 'Sell',
@@ -211,7 +212,7 @@ export const getMenuData: any[] = [
   //       key: 'extraAppsHelpdeskDashboard',
   //       url: '/apps/helpdesk-dashboard',
   //     },
-     
+
   //   ],
   // },
   // {
@@ -305,9 +306,19 @@ export const getMenuData: any[] = [
     title: 'Reports',
     key: 'Report',
     icon: 'fe fe-file-text',
-    url: '/apps/report',
+    children: [
+      {
+        title: 'Support Chat',
+        key: 'authLogin',
+        url: '/apps/report',
+      },
+      {
+        title: 'Issue History',
+        key: 'appsMail',
+        url: '/apps/mail',
+      },
+    ],
   },
-
 
   {
     title: 'AboutUs',
@@ -377,23 +388,23 @@ export const getMenuData: any[] = [
   //     },
   //   ],
   // },
-  // {
-  //   title: 'Tables',
-  //   key: 'tables',
-  //   icon: 'fe fe-grid',
-  //   children: [
-  //     {
-  //       title: 'Ant Design',
-  //       key: 'tablesAntd',
-  //       url: '/tables/antd',
-  //     },
-  //     {
-  //       title: 'Bootstrap',
-  //       key: 'tablesBootstrap',
-  //       url: '/tables/bootstrap',
-  //     },
-  //   ],
-  // },
+  {
+    title: 'Tables',
+    key: 'tables',
+    icon: 'fe fe-grid',
+    children: [
+      {
+        title: 'Ant Design',
+        key: 'tablesAntd',
+        url: '/tables/antd',
+      },
+      {
+        title: 'Bootstrap',
+        key: 'tablesBootstrap',
+        url: '/tables/bootstrap',
+      },
+    ],
+  },
   // {
   //   title: 'Charts',
   //   key: 'charts',
